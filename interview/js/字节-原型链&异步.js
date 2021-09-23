@@ -9,7 +9,7 @@ function Person(name) {
 Person.prototype.getName = function () {
   return this.name;
 };
-function Child() {
+function Child(name) {
   Person.call(this, name);
 }
 
@@ -24,8 +24,10 @@ let t = new Task();
 
 t.add(console.log(1)).add(console.log(2)).sleep(2000).add(console.log(3));
 
-// 写一个类,利用异步这些，来实现add,sleep这些方法
+// 写一个类,利用异步这些，来实现add,sleep这些方法: Task类.js
 */
+
+// eventloop
 async function async1() {
   console.log("async1 start"); // 2
   await async2();

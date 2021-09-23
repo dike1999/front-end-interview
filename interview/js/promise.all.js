@@ -7,7 +7,7 @@ Promise.all = (promises) => {
       p.then(
         (res) => {
           count++;
-          arr[i] = res;
+          arr[i] = res; // 注意此处用下标
           if (count === len) {
             resolve(arr);
           }

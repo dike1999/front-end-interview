@@ -9,6 +9,6 @@ var obj = {
   },
 };
 obj.test2 = fn;
-//下面代码输出是什么
+//字节经典题，下面代码输出是什么
 console.log(obj.test1());
 console.log(fn() === obj.test2());

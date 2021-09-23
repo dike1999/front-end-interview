@@ -31,14 +31,16 @@ const tree = {
 };
 
 function bfs(root) {
+  let ans = [];
   const q = [root];
   while (q.length > 0) {
     const n = q.shift();
-    console.log(n.val);
+    ans.push(n.val);
     n.children.forEach((child) => {
       q.push(child);
     });
   }
+  return ans;
 }
 
-bfs(tree);
+console.log(bfs(tree));

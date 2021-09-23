@@ -1,5 +1,5 @@
 Array.prototype.myFlat = function (num = 1) {
-  if (!Number(num) || Number(num) < 0) {
+  if (!Number(num) || Number(num) <= 0) {
     return this;
   }
   let arr = this; // 获得调用myFlat函数的数组
@@ -25,4 +25,4 @@ const arr = [
   "string",
   { name: "前端收割机" },
 ];
-console.log(arr.myFlat(2));
+console.log(arr.myFlat(Infinity));

@@ -5,7 +5,7 @@ function New(func, ...args) {
   obj.__proto__ = func.prototype;
   // 新对象和函数调用的this绑定起来
   let res = func.call(obj, ...args);
-  // 判断函数返回值如果是null或者undefined则返回obj,否则就放回res
+  // 判断函数返回值如果是null或者Object则返回obj,否则就放回res
   return res instanceof Object ? res : obj;
 }
 

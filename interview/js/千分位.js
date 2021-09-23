@@ -18,6 +18,7 @@ function parseToMoney2(num) {
   return num.toLocaleString();
 }
 
+// 考验正则，不会
 function parseToMoney3(num) {
   return num.replace;
 }

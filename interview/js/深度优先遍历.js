@@ -31,11 +31,18 @@ const tree = {
 };
 
 // 深度优先遍历
-function dfs(root) {
-  console.log(root.val);
+function dfs(root, ans) {
+  if (!ans) {
+    ans = new Array();
+  }
+  if (!root) {
+    return ans;
+  }
+  ans.push(root.val);
   root.children.forEach((child) => {
-    dfs(child);
+    dfs(child, ans);
   });
+  return ans;
 }
 
-dfs(tree);
+console.log(dfs(tree));

@@ -1,28 +1,3 @@
-function midSelect(arr, target) {
-  let left = 0,
-    right = arr.length - 1;
-  let mid, flag;
-  while (left <= right) {
-    mid = Math.floor((left + right) / 2);
-    if (arr[mid] === target) {
-      flag = true;
-      break;
-    } else if (arr[mid] < target) {
-      left = mid + 1;
-    } else {
-      right = mid - 1;
-    }
-  }
-  while (arr[mid - 1] === target) {
-    mid--;
-  }
-  if (flag) {
-    return mid;
-  } else {
-    return -1;
-  }
-}
-
 function even(arr) {
   let even = arr.filter((item) => item % 2 === 1);
   return even.reduce((sum, item) => (sum += item)) - Math.max(...even);
@@ -48,7 +23,7 @@ function shuffle(arr) {
   return arr;
 }
 
-// 元素为1,2,...,100的数组（非有序）中，有一个缺失的数字，如何找到缺失的数组
+// 元素为1,2,...,100的数组（非有序）中，有一个缺失的数字，如何找到缺失的数字
 function arrayList() {
   // 数组和，公式和
   let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
