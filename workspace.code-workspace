@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "interview"
+		},
+		{
+			"path": "leetcode"
+		},
+		{
+			"path": "test"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "interview"
+	}
+}

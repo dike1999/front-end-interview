@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>面试造火箭，工作拧螺丝</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="rocket">
+        <div class="body side left"></div>
+        <div class="body main">
+          <div class="wing leftWing"></div>
+          <div class="wing rightWing"></div>
+          <div class="booster"></div>
+          <div class="fire"></div>
+        </div>
+        <div class="body side right"></div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<style>
+  /* 全局样式 */
+  :root {
+    --rocket-size: 10vw;
+    --sky-color: #1c1740;
+    --rocket-color: #f9e2fe;
+    --rocket-cap-color: crimson;
+    --rocket-logo-color: #4c3198;
+    --rocket-wing-color: #4c3198;
+    --rocket-booster-color: #c38382;
+  }
+
+  /* 背景样式 */
+  body {
+    display: flex;
+    overflow: hidden;
+    background-color: var(--sky-color);
+  }
+
+  /* 容器居中 */
+  .wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    will-change: transform;
+    transition: transform 0.4s ease;
+    transform: translate(-50%, -50%);
+  }
+
+  /* 火箭三列水平布局 */
+  .rocket {
+    display: flex;
+  }
+
+  /* 火箭三列通用样式 */
+  .rocket .body {
+    position: relative;
+    background-color: var(--rocket-color);
+    border-radius: 0 0 50% 50% / 76% 76% 15% 15%;
+    /* 为左中右三列的尾部都添加好圆角 */
+  }
+
+  /* 为左中右三列的突出都添加好圆角 */
+  .rocket .body::before {
+    content: "";
+    position: absolute;
+    border-radius: 50% 50% 50% 50% / 76% 76% 25% 25%;
+  }
+
+  /* 火箭中列宽高 */
+  .rocket .main {
+    width: var(--rocket-size);
+    height: calc(var(--rocket-size) * 1.5);
+  }
+
+  /* 火箭主题突出部的大小、位置 */
+  .rocket .main::before {
+    bottom: 80%;
+    width: 100%;
+    height: 75%;
+    background-color: inherit;
+  }
+
+  /* logo的具体位置及样式 */
+  .rocket .main::after {
+    content: "";
+    position: absolute;
+    bottom: 75%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border: calc(var(--rocket-size) / 15) solid var(--rocket-logo-color);
+    width: calc(var(--rocket-size) / 1.8);
+    height: calc(var(--rocket-size) / 1.8);
+    box-shadow: inset rgba(0, 0, 0, 0.075) -2vw -2vw 0 0,
+      inset rgba(0, 0, 0, 0.1) -1vw -1.5vw 0 0;
+    border-radius: 100%;
+  }
+
+  /* 火箭边列宽高 */
+  .rocket .side {
+    width: calc(var(--rocket-size) / 3);
+    height: var(--rocket-size);
+  }
+
+  /* 火箭左右列突出部的大小、位置及颜色 */
+  .rocket .side::before {
+    bottom: 90%;
+    width: 100%;
+    height: 35%;
+    background-color: var(--rocket-cap-color);
+  }
+
+  /* 火箭左列位置 */
+  .rocket .left {
+    margin-right: 10px;
+  }
+
+  /* 火箭右列位置 */
+  .rocket .right {
+    margin-left: 10px;
+  }
+
+  /* 火箭左右两栏回到正确位置 */
+  .rocket .left {
+    /*   margin-right: 10px; */
+    left: 1px;
+  }
+
+  .rocket .right {
+    /*   margin-left: 10px; */
+    right: 1px;
+  }
+
+  /*  火箭翅膀的样式  */
+  .rocket .wing {
+    position: absolute;
+    bottom: 2vmin;
+    background-color: var(--rocket-wing-color);
+    width: calc(var(--rocket-size) / 2);
+    height: calc(var(--rocket-size) / 1.5);
+    z-index: 1;
+    box-shadow: inset rgba(0, 0, 0, 0.1) -0.5vmin 1vmin 1vmin 0,
+      inset rgba(255, 255, 255, 0.1) 0.5vmin 1vmin 1vmin 0;
+  }
+
+  /*  火箭左翅膀位置  */
+  .rocket .wing.leftWing {
+    right: 100%;
+    border-radius: 100% 0 10% 10%;
+  }
+
+  /*  火箭右翅膀位置  */
+  .rocket .wing.rightWing {
+    left: 100%;
+    border-radius: 0 100% 10% 10%;
+  }
+
+  /* 助推器样式及位置 */
+  .rocket .booster {
+    position: absolute;
+    top: 80%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: calc(var(--rocket-size) / 1.2);
+    height: calc(var(--rocket-size) / 2.5);
+    background-color: var(--rocket-booster-color);
+    border-radius: 0 0 50% 50% / 76% 76% 35% 35%;
+    z-index: -1;
+    box-shadow: inset rgba(0, 0, 0, 0.3) -0.5vmin 1vmin 1vmin 0,
+      inset rgba(255, 255, 255, 0.3) 0.5vmin 1vmin 1vmin 0, black 0 0 2vmin;
+  }
+
+  /* 火焰样式及动画 */
+  .rocket .fire {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: calc(var(--rocket-size) / 1.4);
+    height: 80%;
+    border-radius: 0 0 100% 100%;
+    background-image: linear-gradient(to bottom, yellow, transparent 70%);
+    z-index: -2;
+    transform-origin: 50% 0;
+    animation: fire 0.1s linear alternate infinite;
+  }
+
+  @keyframes fire {
+    to {
+      transform: scaleX(0.98) translateY(-1vmin);
+    }
+  }
+</style>
