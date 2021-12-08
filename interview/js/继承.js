@@ -5,8 +5,9 @@
  */
 
 function SuperType() {
-  this.colors = ["red", "yellow", "blue"];
+  this.colors = ['red', 'yellow', 'blue'];
 }
+
 function SubType() {}
 SubType.prototype = new SuperType();
 
@@ -25,7 +26,7 @@ console.log(instance2.colors);
  * 而且instanceof操作无法确定子类实例和父类之间的关系，因为子类的prototype和父类无关
  */
 function Parent() {
-  this.colors = ["red", "blue", "green"];
+  this.colors = ['red', 'blue', 'green'];
 }
 function Child() {
   Parent.call(this);
@@ -47,18 +48,18 @@ console.log(instance4.colors);
 function Person(name, age) {
   this.name = name;
   this.age = age;
-  this.action = ["speak", "run", "eat"];
-  console.log("组合式继承:我被调用了");
+  this.action = ['speak', 'run', 'eat'];
+  console.log('组合式继承:我被调用了');
 }
 Person.prototype.say = function () {
   console.log(`My name is ${this.name}, and I am ${this.age} years old!`);
 };
 function Student(name, age, score) {
-  Person.call(this, name, age); //借用构造函数, 第一次调用父类构造函数
+  Person.call(this, name, age); // 借用构造函数, 第一次调用父类构造函数
   this.score = score;
 }
-Student.prototype = new Person(); //原型链继承, 第二次调用父类构造函数
-Student.prototype.constructor = Student; //将实例的原型上的构造函数指定为当前子类的构造函数
+Student.prototype = new Person(); // 原型链继承, 第二次调用父类构造函数
+Student.prototype.constructor = Student; // 将实例的原型上的构造函数指定为当前子类的构造函数
 Student.prototype.showScore = function () {
   console.log(`My score is ${this.score}`);
 };
@@ -83,8 +84,8 @@ xiaohua.showScore();
 function Person_1(name, age) {
   this.name = name;
   this.age = age;
-  this.action = ["speak", "run", "eat"];
-  console.log("寄生组合式继承:我被调用了");
+  this.action = ['speak', 'run', 'eat'];
+  console.log('寄生组合式继承:我被调用了');
 }
 Person_1.prototype.say = function () {
   console.log(`My name is ${this.name}, and I am ${this.age} years old!`);
@@ -94,13 +95,14 @@ function Student_1(name, age, score) {
   this.score = score;
 }
 Student_1.prototype = Object.create(Person_1.prototype);
-Student_1.prototype.constructor = Student_1; //借用构造函数, 第一次调用父类构造函数
+Student_1.prototype.constructor = Student_1; // 借用构造函数, 第一次调用父类构造函数
 Student_1.prototype.showScore = function () {
   console.log(`My score is ${this.score}`);
 };
 
-let xiaoming_1 = new Student_1("xiaoming_1", 23, "78");
-xiaoming_1.action.push("panio");
+const xiaoming_1 = new Student_1('xiaoming_1', 23, '78');
+xiaoming_1.action.push('panio');
 console.log(xiaoming_1.action);
 xiaoming_1.say();
 xiaoming_1.showScore();
+console.log(Student_1 instanceof Person_1);

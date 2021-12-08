@@ -1,12 +1,16 @@
-function New(func, ...args) {
-  // 先用Object创建一个空的对象
-  let obj = new Object();
-  // 新对象会被执行prototype连接
-  obj.__proto__ = func.prototype;
-  // 新对象和函数调用的this绑定起来
-  let res = func.call(obj, ...args);
-  // 判断函数返回值如果是null或者Object则返回obj,否则就放回res
-  return res instanceof Object ? res : obj;
+function New(ctor, ...args) {
+  if (typeof ctor !== 'function') {
+    throw 'myNew function the first param must be a function';
+  }
+  let newObj = Object.create(ctor.prototype); // 创建一个继承自ctor.prototype的新对象
+  let res = ctor.apply(newObj, args); // 将构造函数ctor的this绑定到newObj中
+
+  const isObject = typeof res === 'object' && res !== null;
+  const isFunction = typeof res === 'function';
+  if (isObject || isFunction) {
+    return res;
+  }
+  return newObj;
 }
 
 function father(name) {
@@ -16,5 +20,5 @@ function father(name) {
   };
 }
 
-var son = New(father, "dike");
+var son = New(father, 'dike');
 son.sayname();
