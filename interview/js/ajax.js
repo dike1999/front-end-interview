@@ -1,23 +1,20 @@
-function ajax(url, method, data) {
+function ajax(url, method, body, headers) {
   return new Promise((resolve, reject) => {
-    let xhr = new XMLHttpRequest();
-    if (method === "get" || (method === "GET" && data)) {
-      url = url + "?" + data;
-      xhr.open("get", url);
-      xhr.send(null);
-    } else if (method === "get" || method === "GET") {
-      xhr.open("get", url);
-      xhr.send(null);
-    } else {
-      xhr.open("post", url);
-      xhr.send(data);
+    let req = new XMLHttpRequest();
+    req.open(methods, url);
+    for (let key in headers) {
+      req.setRequestHeader(key, headers[key]);
     }
-    xhr.onreadystatechange = () => {
-      if (xhr.status === 200 && xhr.readyState === 4) {
-        resolve(JSON.parse(xhr.responseText));
-      } else if (xhr !== 400 && xhr.readyState === 4) {
-        reject(xhr.status);
+
+    req.onreadystatechange(() => {
+      if (req.readystate == 4) {
+        if (req.status >= '200' && req.status <= 300) {
+          resolve(req.responeText);
+        } else {
+          reject(req);
+        }
       }
-    };
+    });
+    req.send(body);
   });
 }
