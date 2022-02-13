@@ -3,7 +3,5 @@ const log = function (msg) {
 
   console.log(msg);
 };
-log.before = function (func) {
-  
-};
-log("test");
+log.before = function (func) {};
+log('test');

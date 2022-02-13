@@ -1,17 +1,14 @@
 // The TestCase is shown below
 function parseToMoney(num) {
-  let num1 = num.toString().split(".")[0];
-  let num2 = num.toString().split(".")[1] || 0;
+  let num1 = Math.floor(num);
+  let num2 = num - num1;
 
   let res = [];
-  while (num1) {
-    // let temp = ("000" + (num1 % 1000)).substr(-3);
-    let temp = (num1 % 1000).toString().padStart(3, "0");
-    res.unshift(temp);
+  while (num1 > 0) {
+    res.unshift(num1.toString().slice(-3));
     num1 = Math.floor(num1 / 1000);
   }
-  res = parseInt(res.shift()) + "," + res.join(",") + "." + num2;
-  return res;
+  return res.join(',');
 }
 
 function parseToMoney2(num) {
@@ -23,5 +20,5 @@ function parseToMoney3(num) {
   return num.replace;
 }
 
-let num = 1087654.321;
+let num = 01087654.321;
 console.log(parseToMoney(num));

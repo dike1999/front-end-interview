@@ -6,7 +6,7 @@ function loadImage(url) {
       resolve(image);
     };
     image.onerror = () => {
-      reject(new Error("Cound not load image at " + url));
+      reject(new Error('Cound not load image at ' + url));
     };
   });
 }

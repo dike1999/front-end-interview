@@ -1,12 +1,12 @@
 function instance_of(L, R) {
   const baseType = [
-    "string",
-    "null",
-    "number",
-    "boolean",
-    "sybmol",
-    "undefined",
-    "bigint",
+    'string',
+    'null',
+    'number',
+    'boolean',
+    'sybmol',
+    'undefined',
+    'bigint',
   ];
   if (baseType.includes(typeof L)) {
     return false;

@@ -22,16 +22,15 @@ app();
 3-1
 */
 
-/*
+
 Promise.resolve()
   .then((res) => {
-    // setTimeout(() => {
-    //   return 3
-    // }, 0);
+    setTimeout(() => {
+      return 3
+    }, 0);
     return 4;
   })
   .then((data) => {
     console.log(data);
     console.log(222);
   });
-*/

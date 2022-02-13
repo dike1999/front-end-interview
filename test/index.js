@@ -1,6 +1,15 @@
-class Welcome extends React.Component {
-  render() {
-    return <h1>Hello {this.props.name}</h1>;
+// The TestCase is shown below
+function parseToMoney(num) {
+  let num1 = Math.floor(num);
+  let num2 = num - num1;
+
+  let res = [];
+  while (num1 > 0) {
+    res.unshift(num1.toString().slice(-3));
+    num1 = Math.floor(num1 / 1000);
   }
+  return res.join(',');
 }
-const element = <Welcome name='Sara' onNameChanged={this.handleName} />;
+
+let num = 1087654.321;
+console.log(parseToMoney(num));

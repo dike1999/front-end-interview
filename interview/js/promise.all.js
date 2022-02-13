@@ -22,11 +22,11 @@ Promise.all = (promises) => {
 
 let p1 = new Promise((resolve, reject) => {
   setTimeout(() => {
-    resolve("p1");
+    resolve('p1');
   }, 100);
 });
-let p2 = Promise.resolve("p2");
-let p3 = Promise.resolve("p3");
+let p2 = Promise.resolve('p2');
+let p3 = Promise.resolve('p3');
 
 Promise.all([p1, p2, p3]).then(
   (res) => {

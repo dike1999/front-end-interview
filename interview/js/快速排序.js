@@ -5,15 +5,9 @@ function quickSort(arr) {
   }
   let newArr = [...arr]; // 腾讯面试，要求不影响原数组
   let basic = newArr.splice(Math.floor(newArr.length / 2), 1)[0];
-  let left = [];
-  let right = [];
-  for (let i = 0; i < newArr.length; i++) {
-    if (newArr[i] < basic) {
-      left.push(newArr[i]);
-    } else {
-      right.push(newArr[i]);
-    }
-  }
+  let left = newArr.filter((num) => num < basic);
+  let right = newArr.filter((num) => num >= basic);
+
   return quickSort(left).concat([basic], quickSort(right));
 }
 

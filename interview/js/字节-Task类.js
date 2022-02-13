@@ -2,6 +2,7 @@
  * 写一个类,利用异步这些, 来实现add,sleep这些方法链式调用
  * 这里求优化，目前sleep在最后执行bug
  */
+
 class Task {
   constructor() {
     this.queue = Promise.resolve();

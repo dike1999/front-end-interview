@@ -1,6 +1,6 @@
 function mySetInterval(func, ms, count) {
   function interval() {
-    if (typeof count === "undefined" || count-- > 0) {
+    if (typeof count === 'undefined' || count-- > 0) {
       setTimeout(interval, ms);
       try {
         func();

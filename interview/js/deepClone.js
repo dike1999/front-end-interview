@@ -1,11 +1,11 @@
 // 深拷贝
 function deepClone(obj) {
-  if (typeof obj !== "object") {
+  if (typeof obj !== 'object') {
     return obj;
   }
   let newObj = obj instanceof Array ? [] : {};
   for (let i in obj) {
-    let template = typeof obj[i] == "object" ? deepClone(obj[i]) : obj[i];
+    let template = typeof obj[i] == 'object' ? deepClone(obj[i]) : obj[i];
     newObj[i] = template;
   }
   return newObj;

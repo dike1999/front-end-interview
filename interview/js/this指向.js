@@ -16,12 +16,12 @@ function2();
 */
 
 var Person = {
-  name: "zhangsan",
+  name: 'zhangsan',
   age: 19,
 };
 
 function aa(x, y) {
-  console.log(x + "," + y);
+  console.log(x + ',' + y);
   console.log(this);
   console.log(this.name);
 }

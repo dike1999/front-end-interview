@@ -20,7 +20,7 @@ const arr = [
   4,
   [1, 2, 3, [1, 2, 3, [1, 2, 3]]],
   5,
-  "string",
-  { name: "前端收割机" },
+  'string',
+  { name: '前端收割机' },
 ];
 console.log(arr.myFlat());

@@ -21,5 +21,5 @@ function search(nums, target) {
 }
 
 let nums = [-1, 0, 3, 4, 5, 5, 9, 12];
-let target = 4;
+let target = 5;
 console.log(search(nums, target));
