@@ -5,7 +5,7 @@ Array.prototype.myFlat = function (num = 1) {
   let arr = this; // 获得调用myFlat函数的数组
   while (num > 0) {
     if (arr.some((x) => Array.isArray(x))) {
-      arr = [].concat.apply([], arr); // 数组中还有数组元素的话并且 num > 0，继续展开一层数组
+      arr = [].concat(...arr); // 数组中还有数组元素的话并且 num > 0，继续展开一层数组
     } else {
       break; // 数组中没有数组元素并且不管 num 是否依旧大于 0，停止循环。
     }
@@ -25,4 +25,4 @@ const arr = [
   'string',
   { name: '前端收割机' },
 ];
-console.log(arr.myFlat(Infinity));
+console.log(arr.myFlat(1));
