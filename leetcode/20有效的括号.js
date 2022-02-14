@@ -7,24 +7,20 @@ var isValid = function (s) {
     return false;
   }
   const map = new Map([
-    ["}", "{"],
-    [")", "("],
-    ["]", "["],
+    ['}', '{'],
+    [']', '['],
+    [')', '('],
   ]);
   let stack = [];
-  try {
-    s.split("").forEach((ch) => {
-      if (map.has(ch)) {
-        if (!stack.length || stack[stack.length - 1] !== map.get(ch)) {
-          throw e;
-        }
-        stack.pop();
-      } else {
-        stack.push(ch);
+  for (let i = 0; i < s.length; i++) {
+    if (map.has(s[i])) {
+      if (!stack.length || stack[stack.length - 1] !== map.get(s[i])) {
+        return false;
       }
-    });
-  } catch (error) {
-    return false;
+      stack.pop();
+    } else {
+      stack.push(s[i]);
+    }
   }
   return !stack.length;
 };

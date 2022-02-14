@@ -10,3 +10,5 @@ var reverse = function (x) {
   }
   return (result | 0) === result ? result : 0;
 };
+
+console.log(reverse(-1230));

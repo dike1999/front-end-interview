@@ -6,9 +6,7 @@ var rotate = function (matrix) {
   let length = matrix.length;
   for (let i = 0; i < length; i++) {
     for (let j = i; j < length; j++) {
-      let temp = matrix[i][j];
-      matrix[i][j] = matrix[j][i];
-      matrix[j][i] = temp;
+      [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]];
     }
   }
   return matrix.map((item) => item.reverse());

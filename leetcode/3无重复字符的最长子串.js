@@ -6,10 +6,9 @@ var lengthOfLongestSubstring = function (s) {
   let len = s.length;
   let result = 0;
   let set = new Set();
-  // 左指针用来收缩窗口
-  let left = 0;
-  // 右指针用来扩张窗口
-  let right = 0;
+  // 左指针用来收缩窗口, 右指针用来扩张窗口
+  let left = 0,
+    right = 0;
   while (left < len) {
     // 如果不重复，就不断扩张窗口，元素添加到set中
     while (right < len && !set.has(s[right])) {
