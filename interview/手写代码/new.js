@@ -6,9 +6,7 @@ function New(ctor, ...args) {
   newObj.__proto__ = ctor.prototype;
   let res = ctor.apply(newObj, args); // 将构造函数ctor的this绑定到newObj中
 
-  const isObject = typeof res === 'object' && res !== null;
-  const isFunction = typeof res === 'function';
-  if (isObject || isFunction) {
+  if (res !== null && (typeof res === 'object' || typeof res === 'function')) {
     return res;
   }
   return newObj;
