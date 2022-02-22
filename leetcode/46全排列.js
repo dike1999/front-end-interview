@@ -3,25 +3,20 @@
  * @return {number[][]}
  */
 var permute = function (nums) {
-  function backtracking(n, k, used) {
-    if (path.length === k) {
-      res.push(Array.from(path));
+  const res = [];
+  const backstack = (path) => {
+    if (path.length === nums.length) {
+      res.push(path);
       return;
     }
-    for (let i = 0; i < k; i++) {
-      if (used[i]) {
-        continue;
+    nums.forEach((n) => {
+      if (path.includes(n)) {
+        return;
       }
-      path.push(n[i]);
-      used[i] = true; // 同支
-      backtracking(n, k, used);
-      path.pop();
-      used[i] = false;
-    }
-  }
-  const res = [],
-    path = [];
-  backtracking(nums, nums.length, []);
+      backstack(path.concat(n));
+    });
+  };
+  backstack([]);
   return res;
 };
 

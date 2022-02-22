@@ -15,20 +15,20 @@ function shuffle(arr) {
  * @param {Number} money 总额
  * @param {Number} count 人数
  * @param {Number} min 最小值
- * @param {Number} threshold 阈值
+ * @param {Number} limit 阈值
  * @returns
  */
-function randomRedPackage(money, count, min, threshold = 0.618) {
-  if (threshold < 0 || threshold > 1) {
+function randomRedPackage(money, count, min = 0.01, limit = 0.618) {
+  if (limit < 0 || limit > 1) {
     throw new TypeError(
-      "range of threshold's value is wrong, it's value expect in range of [0, 1]"
+      "range of limit's value is wrong, it's value expect in range of [0, 1]"
     );
   }
 
   let result = [];
   for (let i = 0; i < count - 1; i++) {
     const value = parseFloat(
-      (Math.random() * (money * threshold - min) + min).toFixed(2)
+      (Math.random() * (money * limit - min) + min).toFixed(2)
     );
     result.push(value);
     money -= value;
@@ -37,7 +37,7 @@ function randomRedPackage(money, count, min, threshold = 0.618) {
   return shuffle(result);
 }
 
-const arr = randomRedPackage(10, 10, 0.01, 0.6);
+const arr = randomRedPackage(10, 10);
 const sum = arr.reduce((pre, cur) => pre + cur, 0);
 console.log(arr);
 console.log(sum);
