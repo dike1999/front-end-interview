@@ -17,5 +17,5 @@ let sum = curry((a, b, c, d) => {
   return a + b + c + d;
 });
 
-console.log(sum(2)(3)(5)(6)); //10
-console.log(sum(2, 3)(5, 7)); //10
+console.log(sum(2)(3)(5)(6)); //16
+console.log(sum(2, 3)(5, 7)); //17
