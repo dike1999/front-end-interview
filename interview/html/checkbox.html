@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="content">
+      <input type="checkbox" />漂洋过海来看你 <br />
+      <input type="checkbox" />后来 <br />
+      <input type="checkbox" />一眼万年 <br />
+      <input type="checkbox" />没那么简单 <br />
+      <input type="checkbox" />如果你要离去 <br />
+      <input type="checkbox" />恋恋风尘 <br />
+      <input type="checkbox" />南山南 <br />
+      <input type="checkbox" />涛声依旧 <br />
+    </div>
+    <div class="button">
+      <hr />
+      <button id="allSelect">全选</button>
+      <button id="cancelSelect">取消选中</button>
+      <button id="reverseSelect">反选</button>
+    </div>
+    <script>
+      let inputs = document.getElementsByTagName('input');
+      document.getElementById('allSelect').addEventListener('click', () => {
+        for (let i = 0; i < inputs.length; i++) {
+          inputs[i].checked = true;
+        }
+      });
+      document.getElementById('cancelSelect').addEventListener('click', () => {
+        for (let i = 0; i < inputs.length; i++) {
+          inputs[i].checked = false;
+        }
+      });
+      document.getElementById('reverseSelect').addEventListener('click', () => {
+        for (let i = 0; i < inputs.length; i++) {
+          inputs[i].checked = !inputs[i].checked;
+        }
+      });
+    </script>
+  </body>
+</html>

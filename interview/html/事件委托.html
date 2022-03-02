@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件委托</title>
+  </head>
+  <body>
+    <ul id="content">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+    </ul>
+  </body>
+  <script>
+    let ul = document.getElementById('content');
+    ul.onclick = function (event) {
+      event = event || window.event;
+      let target = event.target || event.srcElement;
+      if (target.nodeName.toLowerCase() === 'li') {
+        console.log(target.innerHTML);
+      }
+    };
+  </script>
+</html>
