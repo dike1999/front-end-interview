@@ -1,10 +1,10 @@
 function add(num) {
-  var sum = num;
+  let sum = num;
   return function tempFun(numB) {
     if (arguments.length === 0) {
       return sum;
     } else {
-      sum = sum + numB;
+      sum += numB;
       return tempFun;
     }
   };
