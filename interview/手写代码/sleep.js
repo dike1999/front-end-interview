@@ -10,7 +10,7 @@ function sleep(ms) {
 
 function sleep2(ms) {
   let start = new Date().getTime();
-  while (new Date().getTime() - start < ms) {}
+  while (new Date().getTime(- start < ms) {}
 }
 
 sleep2(2000);
