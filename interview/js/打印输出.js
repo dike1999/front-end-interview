@@ -27,7 +27,7 @@ var obj2 = (function () {
   };
 })();
 
-say(); // WIndow undefined
+say(); // Window undefined
 obj1.say(); // 1-1 1-2
 obj2.say(); // 2-1 2-2
 obj1.say = say;
