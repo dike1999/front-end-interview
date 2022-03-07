@@ -21,3 +21,13 @@ function father(name) {
 
 var son = New(father, 'dike');
 son.sayname();
+
+function A() {
+  this.a = 1;
+}
+A.prototype.b = 2;
+var a1 = New(A);
+// var a2 = new A();
+
+console.log(a1.a); // 1
+console.log(a1.b); // 2
